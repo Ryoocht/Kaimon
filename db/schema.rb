@@ -10,24 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_113119) do
+ActiveRecord::Schema.define(version: 2021_11_23_124403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.string "street_address"
-    t.string "suburb"
-    t.bigint "state_id", null: false
-    t.integer "post_code"
-    t.bigint "user_id", null: false
-    t.bigint "store_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["state_id"], name: "index_addresses_on_state_id"
-    t.index ["store_id"], name: "index_addresses_on_store_id"
-    t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
 
   create_table "admin_stores", force: :cascade do |t|
     t.bigint "admin_id", null: false
@@ -112,6 +98,18 @@ ActiveRecord::Schema.define(version: 2021_11_21_113119) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "store_addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "suburb"
+    t.bigint "state_id", null: false
+    t.integer "post_code"
+    t.bigint "store_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["state_id"], name: "index_store_addresses_on_state_id"
+    t.index ["store_id"], name: "index_store_addresses_on_store_id"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -120,6 +118,18 @@ ActiveRecord::Schema.define(version: 2021_11_21_113119) do
     t.integer "close_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "suburb"
+    t.bigint "state_id", null: false
+    t.integer "post_code"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["state_id"], name: "index_user_addresses_on_state_id"
+    t.index ["user_id"], name: "index_user_addresses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -133,9 +143,6 @@ ActiveRecord::Schema.define(version: 2021_11_21_113119) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "addresses", "states"
-  add_foreign_key "addresses", "stores"
-  add_foreign_key "addresses", "users"
   add_foreign_key "admin_stores", "admins"
   add_foreign_key "admin_stores", "stores"
   add_foreign_key "comments", "products"
@@ -147,4 +154,8 @@ ActiveRecord::Schema.define(version: 2021_11_21_113119) do
   add_foreign_key "product_orders", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "stores"
+  add_foreign_key "store_addresses", "states"
+  add_foreign_key "store_addresses", "stores"
+  add_foreign_key "user_addresses", "states"
+  add_foreign_key "user_addresses", "users"
 end
