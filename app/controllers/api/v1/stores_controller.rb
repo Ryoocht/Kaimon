@@ -7,11 +7,11 @@ class Api::V1::StoresController < Api::V1::ApplicationController
     end
 
     def store_search
-        # search stores by address
+        # input = Geocoder.search(params[:geo_address])
     end
 
     def show
-        
+        render json: @store
     end
 
     private
@@ -19,4 +19,8 @@ class Api::V1::StoresController < Api::V1::ApplicationController
     def set_store
         @store = Store.find(params[:id])
     end
+
+    # def store_params
+    #     params.require(:store).permit(:)
+    # end
 end

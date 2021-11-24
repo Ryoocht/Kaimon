@@ -1,4 +1,4 @@
-class Api::V1::StoresController < Api::V1::ApplicationController
+class Api::V1::User::StoresController < Api::V1::ApplicationController
     before_action :set_store, only: [:show]
 
     def index
@@ -11,7 +11,7 @@ class Api::V1::StoresController < Api::V1::ApplicationController
     end
 
     def show
-        
+        render json: @store
     end
 
     private

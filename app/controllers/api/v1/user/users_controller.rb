@@ -1,22 +1,16 @@
 class Api::V1::User::UsersController < Api::V1::ApplicationController
-    before_action :set_user, only: [:show]
-
-    def index
-        @users = User.all
-        render json: @users
-    end
+    before_action :set_user, only: [:show, :edit]
 
     def show
         render json: @user
     end
 
-    def create
-        @user = User.new(user_params)
-        if @user.save
-            render json: @user, status: :created, location: @user
-        else
-            render json: @user.errors, status: :inprocessable_entity
-        end
+    def edit
+        render json: @user
+    end
+
+    def update
+        
     end
 
     private

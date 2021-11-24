@@ -1,26 +1,13 @@
-class Api::V1::ProductsController < Api::V1::ApplicationController
+class Api::V1::User::ProductsController < Api::V1::ApplicationController
+    before_action :set_product, only: [:show]
 
     def show
-        puts "THIS ROUTE IS WORKING"
+        render json: @product
     end
 
-    def new
-        
-    end
+    private
 
-    def create
-        
-    end
-
-    def edit
-        
-    end
-
-    def update
-        
-    end
-
-    def delete
-        
+    def set_product
+        @product = Product.find(params[:id])
     end
 end

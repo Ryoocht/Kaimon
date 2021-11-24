@@ -1,18 +1,21 @@
 class Api::V1::Admin::AdminsController < Api::V1::ApplicationController
-
-    def new
-        puts "THIS ROUTE IS WORKING"
-    end
-
-    def create
-        
-    end
-
-    def destroy
-        
-    end
+    before_action :set_admin, only: [:show]
 
     def show
+        render json: @admin
+    end
+
+    def edit
         
+    end
+
+    def update
+        
+    end
+
+    private
+
+    def set_admin
+        @admin = Admin.find(params[:id])
     end
 end
