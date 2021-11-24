@@ -38,7 +38,7 @@ Rails.application.routes.draw do
         resources :admins, only: [:new, :create, :destroy, :show] do
           member do
             resources :stores, only: [:show, :edit, :update] do
-              resources :products, only: [:new, :create, :edit, :update]
+              resources :products, only: [:new, :create, :edit, :update, :destroy]
             end
           end
         end
