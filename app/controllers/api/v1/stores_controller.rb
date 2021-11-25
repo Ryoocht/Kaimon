@@ -3,7 +3,7 @@ class Api::V1::StoresController < Api::V1::ApplicationController
 
     def index
         stores = Store.all
-        render json: stores, only: [:id, :name]
+        render json: stores, only: [:id, :name, :top_image]
     end
 
     def store_search

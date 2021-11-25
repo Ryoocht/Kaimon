@@ -6,6 +6,9 @@ class CreateStores < ActiveRecord::Migration[6.1]
       t.integer :phone_number
       t.integer :open_time
       t.integer :close_time
+      t.string :top_image
+      t.string :sub_image
+      t.string :icon_image
 
       t.timestamps
     end

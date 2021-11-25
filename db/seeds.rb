@@ -22,7 +22,7 @@ end
 
 def make_stores
     ["Metro", "Foodworks", "Hanaro", "Yuen's market"].each do |store|
-        Store.create(name: store)
+        Store.create(name: store, top_image: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e')
     end
 end
 

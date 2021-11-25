@@ -116,6 +116,9 @@ ActiveRecord::Schema.define(version: 2021_11_23_124403) do
     t.integer "phone_number"
     t.integer "open_time"
     t.integer "close_time"
+    t.string "top_image"
+    t.string "sub_image"
+    t.string "icon_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
