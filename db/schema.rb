@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_124403) do
     t.string "description"
     t.integer "price"
     t.integer "like"
+    t.string "image"
     t.bigint "store_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false

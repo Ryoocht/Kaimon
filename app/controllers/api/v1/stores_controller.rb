@@ -3,7 +3,7 @@ class Api::V1::StoresController < Api::V1::ApplicationController
 
     def index
         stores = Store.all
-        render json: stores, only: [:id, :name, :top_image]
+        render json: StoreSerializer.new(stores)
     end
 
     def store_search
@@ -11,7 +11,10 @@ class Api::V1::StoresController < Api::V1::ApplicationController
     end
 
     def show
-        render json: @store
+        options = {
+            include: [:products]
+        }
+        render json: StoreSerializer.new(@store, options)
     end
 
     private

@@ -44,5 +44,3 @@ gem 'fast_jsonapi'
 gem 'jwt'
 
 gem 'geocoder'
-
-gem 'active_model_serializers'
