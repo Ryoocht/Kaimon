@@ -2,7 +2,12 @@ class Api::V1::User::UsersController < Api::V1::ApplicationController
     before_action :set_user, only: [:show, :edit]
 
     def show
-        render json: @user
+        options = {
+            include: [:user]
+        }
+        # render json: UserSerializer.new(@user)
+        user_address = UserAddress.find_by(id: 1)
+        render json: UserAddressSerializer.new(user_address)
     end
 
     def edit

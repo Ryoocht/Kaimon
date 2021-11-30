@@ -44,3 +44,5 @@ gem 'fast_jsonapi'
 gem 'jwt'
 
 gem 'geocoder'
+
+gem 'faker'

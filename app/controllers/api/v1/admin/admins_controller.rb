@@ -2,7 +2,10 @@ class Api::V1::Admin::AdminsController < Api::V1::ApplicationController
     before_action :set_admin, only: [:show]
 
     def show
-        render json: @admin
+        options = {
+            include: [:stores]
+        }
+        render json: AdminSerializer.new(@admin, options)
     end
 
     def edit

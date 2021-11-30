@@ -6,6 +6,7 @@ def make_seeds
     make_admins
     make_product
     make_users
+    make_admin_store
 end
 
 def make_states
@@ -47,6 +48,13 @@ def make_users
     ["Tyra", "Meerab", "Charis", "Mehak", "Zane"].each do |user|
         User.create(username: user)
     end
+end
+
+def make_admin_store
+    AdminStore.create(admin_id: 1, store_id: 1)
+    AdminStore.create(admin_id: 1, store_id: 2)
+    AdminStore.create(admin_id: 1, store_id: 3)
+    AdminStore.create(admin_id: 1, store_id: 4)
 end
 
 
