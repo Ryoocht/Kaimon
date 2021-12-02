@@ -4,6 +4,6 @@ class Store < ApplicationRecord
     has_many :holidays
     has_many :admin_stores
     has_many :admins, through: :admin_stores
-    has_one :address
+    has_one :store_address
 
 end

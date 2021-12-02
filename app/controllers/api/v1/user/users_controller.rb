@@ -3,11 +3,9 @@ class Api::V1::User::UsersController < Api::V1::ApplicationController
 
     def show
         options = {
-            include: [:user]
+            include: [:user_address]
         }
-        # render json: UserSerializer.new(@user)
-        user_address = UserAddress.find_by(id: 1)
-        render json: UserAddressSerializer.new(user_address)
+        render json: UserSerializer.new(@user, options)
     end
 
     def edit
